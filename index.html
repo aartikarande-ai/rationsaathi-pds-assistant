@@ -29,10 +29,7 @@ body{background:radial-gradient(ellipse at 5% 3%,#e4f1e7 0,transparent 31rem),ra
 @media(max-width:620px){.role-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.role-option{min-height:88px;padding:9px 4px}.role-option:before{grid-row:auto;margin:0 0 6px}.role-option strong{font-size:10px;line-height:1.25}.login-title h1{font-size:20px}.login-card{padding:22px 17px}}
 @media print{body{background:#fff!important}.top,.app-nav,.hero,.notice,.no-print,footer{display:none!important}.wrap{max-width:none;margin:0;padding:0}.app-shell{display:block}.page-panel:not([data-page="household"]){display:none!important}.page-panel[data-page="household"]{display:block!important;animation:none}.page-panel[data-page="household"]>.title{margin-top:0}.digital-card{max-width:760px;margin:16px auto;box-shadow:none!important;border:1px solid #164b3b;-webkit-print-color-adjust:exact;print-color-adjust:exact}.ecard-disclaimer{max-width:760px;margin:12px auto}.ecard-banner,.digital-card-grid>div{break-inside:avoid}}
 </style>
-  
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
-
 <body>
 <header class="top hidden" id="appTop"><div class="brand"><span class="logo">🌾</span><span>RationSaathi<small>Ration entitlement & evidence assistant</small></span></div><div class="session"><span id="sessionLabel"></span><button class="btn light small" id="languageToggle" type="button">हिन्दी</button><button class="btn light small" id="signOut" type="button">Sign out</button></div></header>
 
@@ -118,11 +115,6 @@ body{background:radial-gradient(ellipse at 5% 3%,#e4f1e7 0,transparent 31rem),ra
 const $=id=>document.getElementById(id), DBKEY='rationsaathi_roles_demo_data_v1', SESSION='rationsaathi_roles_demo_session_v1';
 const accounts={'beneficiary@demo':{password:'anna123',role:'beneficiary',label:'Ration Card Holder / Beneficiary'},'shop@demo':{password:'anna123',role:'shop',label:'Fair Price Shop Dealer'},'department@demo':{password:'anna123',role:'department',label:'Department Official'}};
 let selectedRole='',activeRole='',activePage='dashboard',language='en',receiptSuggestion=null;
-  
-const supabaseUrl = 'https://uuhdiuqttbqaydlbtkyn.supabase.co/rest/v1/';
-const supabaseKey = 'sb_publishable_8Fy8IId7-qAgsK7lmmT_qg_-hNI05Ec';
-const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
-
 const grams=v=>Math.round(Number(v)*1000),kg=v=>(v/1000).toLocaleString('en-IN',{maximumFractionDigits:3}),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const nowMonth=()=>new Date().toISOString().slice(0,7), today=()=>new Date().toISOString().slice(0,10);
 function blankDB(){return {deliveries:[],rules:{},cases:[]}}
@@ -140,50 +132,7 @@ function showSession(user){session=user;activeRole=user.role;activePage='dashboa
   if(user.role==='beneficiary')initBeneficiary(); if(user.role==='shop')initShop(); if(user.role==='department'){renderCases();renderDeptDeliveries()}
 }
 function signOut(){session=null;activeRole='';selectedRole='';localStorage.removeItem(SESSION);$('appTop').classList.add('hidden');$('appMain').classList.add('hidden');$('appFooter').classList.add('hidden');$('loginPage').classList.remove('hidden');$('loginForm').classList.add('hidden');$('password').value='';$('email').value='';document.querySelectorAll('.role-option').forEach(x=>x.classList.remove('selected'))}
-
-$('loginForm').addEventListener('submit', async e => {
-  e.preventDefault();
-
-  const email = $('email').value.trim().toLowerCase();
-  const password = $('password').value;
-
-  if (!selectedRole) {
-    $('loginError').textContent =
-      'Choose one of the three workspaces first.';
-    return;
-  }
-
-  $('loginError').textContent = 'Signing in...';
-
-  const { data, error } = await supabaseClient.auth.signInWithPassword({
-    email,
-    password
-  });
-
-  if (error) {
-    $('loginError').textContent =
-      'Login failed. Check your email and password.';
-    return;
-  }
-
-  const role = data.user.user_metadata?.role;
-
-  if (role !== selectedRole) {
-    await supabaseClient.auth.signOut();
-    $('loginError').textContent =
-      'This account does not belong to the selected workspace.';
-    return;
-  }
-
-  $('loginError').textContent = '';
-
-  showSession({
-    email,
-    role,
-    label: data.user.user_metadata?.label || email
-  });
-});
-
+ $('loginForm').addEventListener('submit',e=>{e.preventDefault();const email=$('email').value.trim().toLowerCase(),acct=accounts[email];if(!selectedRole){$('loginError').textContent='Choose one of the three workspaces first.';return}if(!acct||acct.role!==selectedRole||$('password').value!==acct.password){$('loginError').textContent='Username or password does not match the selected workspace.';return}$('loginError').textContent='';showSession({email,role:acct.role,label:acct.label})});
 document.querySelectorAll('.role-option').forEach(btn=>btn.addEventListener('click',()=>{selectedRole=btn.dataset.role;document.querySelectorAll('.role-option').forEach(x=>x.classList.toggle('selected',x===btn));$('loginForm').classList.remove('hidden');$('email').value='';$('password').value='';$('email').placeholder=selectedRole==='beneficiary'?'beneficiary@demo':selectedRole==='shop'?'shop@demo':'department@demo';$('email').focus()}));
 document.querySelectorAll('.role-option').forEach(btn=>btn.addEventListener('click',()=>{$('authTabs').classList.remove('hidden');$('registerPreview').classList.add('hidden');$('loginForm').classList.remove('hidden');$('authLoginTab').classList.add('active');$('authRegisterTab').classList.remove('active');$('authLoginTab').setAttribute('aria-selected','true');$('authRegisterTab').setAttribute('aria-selected','false')}));
 document.addEventListener('click',e=>{if(e.target.id==='authLoginTab'){$('authLoginTab').classList.add('active');$('authRegisterTab').classList.remove('active');$('authLoginTab').setAttribute('aria-selected','true');$('authRegisterTab').setAttribute('aria-selected','false');$('loginForm').classList.remove('hidden');$('registerPreview').classList.add('hidden')}else if(e.target.id==='authRegisterTab'){$('authRegisterTab').classList.add('active');$('authLoginTab').classList.remove('active');$('authRegisterTab').setAttribute('aria-selected','true');$('authLoginTab').setAttribute('aria-selected','false');$('loginForm').classList.add('hidden');$('registerPreview').classList.remove('hidden')}});
