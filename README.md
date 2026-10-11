@@ -6,17 +6,17 @@ RationSaathi is a browser-only prototype for the VORTEXA 3.0 P-01 RationSaathi p
 
 Open `index.html` in a modern browser. No installation or server is required.
 
-## Demo accounts
+## Choose a workspace and sign in
 
-All demo accounts use the password `anna123`:
+The first screen lets you choose one of three workspaces. Then enter the displayed demo username and password `anna123`:
 
 | Role | Demo account |
 | --- | --- |
-| Beneficiary | `beneficiary@demo` |
-| Ration shopkeeper | `shop@demo` |
-| Department reviewer | `department@demo` |
+| Ration Card Holder | `beneficiary@demo` |
+| Fair Price Shop Dealer | `shop@demo` |
+| Department Official | `department@demo` |
 
-Start with the shopkeeper account and add a distribution for `SAMPLE-001`. Sign out, open the beneficiary account, review the calculation, and submit a report. To see the receipt-text assistant, paste fictional evidence text and choose **Analyze text**; review and confirm its category/date/quantity suggestions before adding a delivery. Sign out again and open the department account to review the submitted report.
+To demonstrate the workflow, select **Fair Price Shop Dealer** and add a distribution for `SAMPLE-001`. Sign out, select **Ration Card Holder**, review the calculation, and submit a report. To see the receipt-text assistant, paste fictional evidence text and choose **Analyze text**; review and confirm its category/date/quantity suggestions before adding a delivery. Sign out again and select **Department Official** to review the submitted report.
 
 The receipt assistant uses a small offline Naive Bayes classifier trained on example phrases included in the page. It also looks for common date and kilogram patterns. These are suggestions only: the displayed score is not a probability, users must review the original evidence, and only manually entered/confirmed rule and delivery values are used for arithmetic.
 
