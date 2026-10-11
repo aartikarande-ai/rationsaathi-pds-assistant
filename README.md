@@ -1,37 +1,36 @@
 # RationSaathi
 
-RationSaathi is a browser-only prototype for the VORTEXA 3.0 P-01 RationSaathi problem. It demonstrates an entitlement calculation, delivery records with evidence references, and a neutral discrepancy report.
+RationSaathi is a browser-only prototype for the VORTEXA 3.0 P-01 ration entitlement and delivery-evidence workflow. It has separate workspaces for ration card holders, Fair Price Shop dealers, and department officials.
 
-## Run the demo
+## Open the demo
 
-Open `index.html` in a modern browser. No installation or server is required.
+Open `index.html` in a modern browser. No installation or server is required. Choose a role, then sign in with its demo username and the shared demo password `anna123`:
 
-## Choose a workspace and sign in
-
-The first screen lets you choose one of three workspaces. Then enter the displayed demo username and password `anna123`:
-
-| Role | Demo account |
+| Workspace | Demo username |
 | --- | --- |
-| Ration Card Holder | `beneficiary@demo` |
+| Ration Card Holder / Beneficiary | `beneficiary@demo` |
 | Fair Price Shop Dealer | `shop@demo` |
 | Department Official | `department@demo` |
 
-To demonstrate the workflow, select **Fair Price Shop Dealer** and add a distribution for `SAMPLE-001`. Sign out, select **Ration Card Holder**, review the calculation, and submit a report. To see the receipt-text assistant, paste fictional evidence text and choose **Analyze text**; review and confirm its category/date/quantity suggestions before adding a delivery. Sign out again and select **Department Official** to review the submitted report.
+The role dashboards link to household details and a clearly marked sample e-Ration card, entitlement and calculation, delivery history, reports, receipt-text suggestions, shop distribution records and responses, and department monitoring, evidence review, case management, and discrepancy analysis. The English/Hindi toggle translates the main navigation and common interface labels.
 
-The receipt assistant uses a small offline Naive Bayes classifier trained on example phrases included in the page. It also looks for common date and kilogram patterns. These are suggestions only: the displayed score is not a probability, users must review the original evidence, and only manually entered/confirmed rule and delivery values are used for arithmetic.
+## Suggested demo flow
 
-## Prototype limits
+1. Sign in as `shop@demo` and add a dated distribution for household `SAMPLE-001`, including a fictional receipt reference.
+2. Sign in as `beneficiary@demo`. Review the entered entitlement rule and delivery history, then create a partial delivery record or try the receipt-text helper. Confirm all suggestions and values before saving.
+3. Submit a report for department review. Comparison labels distinguish **Potential shortfall**, **Exact match**, and **Above entered entitlement**. A difference is not a fraud finding; the report says that its cause is undetermined.
+4. Sign in as `shop@demo` to add a factual response, and as `department@demo` to review evidence, update case status, and see comparison counts.
 
-- Sign-in is simulated in browser code. It is not secure authentication and must not be used for real accounts.
-- Data is saved in browser local storage, so it is available only in the same browser profile and device.
-- Use fictional data only. Do not enter Aadhaar numbers, passwords used elsewhere, or real beneficiary records.
-- The receipt-text classifier and date/quantity pattern matching are a lightweight local demo, not a production AI service.
-- There is no server-side storage or cross-device synchronization.
+The default demo rule is fictional: 5 kg per household member for four members. Confirm the actual applicable entitlement with an authoritative source before using any real figures. The receipt helper uses simple local keyword and pattern matching; suggestions are not probabilities and never change calculation arithmetic.
+
+## Prototype limitations
+
+- Sign-in is simulated in browser code and is not secure authentication.
+- Records are stored in local storage in this browser profile only. They do not sync across devices or users.
+- Use fictional information only. Do not enter Aadhaar numbers, real beneficiary records, or passwords used elsewhere.
+- The sample e-Ration card is illustrative and is not an official card. This prototype is not an official government service.
 
 ## Project files
 
-- `index.html` — complete single-page demo (HTML, CSS, and JavaScript)
-- `.gitignore` — ignores local secrets and editor/system files
-
-
-
+- `index.html` — the single-page demo, including its styling and browser-side interactions.
+- `.gitignore` — ignores local secrets and editor/system files.
