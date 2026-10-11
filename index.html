@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#164b3b">
+<title>RationSaathi — Ration Entitlement & Evidence</title>
+<style>
+:root{--forest:#164b3b;--green:#247253;--gold:#f0bd57;--paper:#f4f8f5;--ink:#1d3129;--muted:#64766d;--line:#dce7df;--white:#fff;--red:#a83d35;--amber:#815b13;--shadow:0 12px 30px #173d3010}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.hidden{display:none!important}
+.top{background:var(--forest);color:white;display:flex;align-items:center;justify-content:space-between;padding:13px max(20px,calc((100vw - 1120px)/2));gap:15px}.brand{display:flex;align-items:center;gap:10px;font-size:19px;font-weight:850}.logo{width:40px;height:40px;border-radius:13px;background:var(--gold);color:var(--forest);display:grid;place-items:center;font-size:21px}.brand small{display:block;font-size:10px;color:#cfe1d7;font-weight:500}.session{display:flex;align-items:center;gap:12px;color:#e3efe8;font-size:12px}.wrap{max-width:1120px;margin:26px auto 55px;padding:0 21px}.hero{background:linear-gradient(120deg,#164b3b,#2c7959);color:white;border-radius:19px;padding:25px 28px;margin-bottom:18px}.hero h1{font-size:clamp(26px,4vw,36px);line-height:1.15;margin:0 0 7px}.hero p{margin:0;color:#e2eee7;max-width:800px}.notice{border:1px solid #eedaa5;background:#fff8e6;color:#664d19;border-radius:12px;padding:12px 15px;margin:14px 0 20px;font-size:12px}.title{margin:24px 0 11px;display:flex;align-items:end;justify-content:space-between;gap:10px}.title h2{font-size:20px;margin:0}.title p{font-size:12px;color:var(--muted);margin:2px 0 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.card{background:white;border:1px solid var(--line);border-radius:16px;padding:19px;box-shadow:var(--shadow);min-width:0}.card h3{font-size:16px;margin:0 0 4px}.sub{font-size:12px;color:var(--muted);margin:0 0 14px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:11px}.field{display:flex;flex-direction:column;gap:5px}.field.full{grid-column:1/-1}.field label{font-size:11px;font-weight:800;color:#52655b}.field input,.field select,.field textarea{border:1px solid #d1ddd4;border-radius:9px;padding:9px 10px;min-width:0;background:white;color:var(--ink)}.field textarea{min-height:64px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{outline:3px solid #24725322;border-color:var(--green)}.btn{border:0;border-radius:9px;padding:9px 13px;font-weight:750;display:inline-flex;align-items:center;justify-content:center;gap:6px}.green{background:var(--green);color:white}.gold{background:var(--gold);color:#25392f}.light{background:white;color:var(--forest);border:1px solid var(--line)}.danger{background:#fff0ef;color:var(--red);border:1px solid #f0d4d0}.small{font-size:11px;padding:6px 9px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}.stat{background:white;border:1px solid var(--line);border-radius:13px;padding:13px}.stat span{font-size:11px;font-weight:750;color:var(--muted)}.stat strong{display:block;font-size:23px;margin-top:3px}.stat.alert strong{color:var(--red)}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:12px}th,td{text-align:left;vertical-align:top;padding:9px 7px;border-bottom:1px solid #e9efeb}th{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);white-space:nowrap}.empty{text-align:center;color:var(--muted);padding:20px}.report{border:1px dashed #b5c9bb;border-radius:12px;background:#fafdfa;padding:16px}.report h3{margin-bottom:8px}.report p,.report li{font-size:12px}.report ol{padding-left:20px}.pill{display:inline-block;border-radius:99px;background:#e8f3eb;color:#1d6648;padding:4px 8px;font-size:10px;font-weight:800}.status{display:inline-block;border-radius:99px;padding:4px 8px;font-size:10px;font-weight:800;background:#fff2d7;color:#75530f}.muted{color:var(--muted)}.login{max-width:470px;margin:8vh auto 50px;padding:0 16px}.login-card{background:white;border:1px solid var(--line);border-radius:20px;padding:25px;box-shadow:var(--shadow)}.login-title{text-align:center;margin-bottom:20px}.login-title .logo{margin:0 auto 10px;width:55px;height:55px;font-size:27px}.login-title h1{font-size:25px;margin:0}.login-title p{font-size:13px;color:var(--muted);margin:5px 0}.demo-creds{background:#f2f7f3;border:1px solid var(--line);border-radius:11px;padding:11px 13px;font-size:11px;margin-top:14px}.demo-creds code{font-family:ui-monospace,monospace}.error{color:var(--red);font-size:12px;min-height:18px;margin-top:7px}.toast{position:fixed;bottom:18px;right:18px;background:#173e32;color:white;padding:11px 15px;border-radius:10px;box-shadow:var(--shadow);opacity:0;transform:translateY(8px);transition:.2s;pointer-events:none}.toast.show{opacity:1;transform:translateY(0)}footer{background:#12392f;color:#d7e8de;padding:18px max(20px,calc((100vw - 1120px)/2));font-size:11px}.login-footer{text-align:center;color:var(--muted);font-size:10px;margin-top:14px}
+@media(max-width:740px){.grid{grid-template-columns:1fr}.session span{display:none}.stats{grid-template-columns:1fr 1fr}}@media(max-width:480px){.wrap{padding:0 12px;margin-top:15px}.hero{padding:20px}.card{padding:15px}.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.top{padding:10px 13px}.stats{gap:7px}.stat{padding:10px}.stat strong{font-size:20px}}
+@media print{.top,.hero,.notice,.no-print,footer{display:none!important}.wrap{margin:0;padding:0}.card,.stat{box-shadow:none;break-inside:avoid}.grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header class="top hidden" id="appTop"><div class="brand"><span class="logo">🌾</span><span>RationSaathi<small>Ration entitlement & evidence assistant</small></span></div><div class="session"><span id="sessionLabel"></span><button class="btn light small" id="signOut" type="button">Sign out</button></div></header>
+
+<section id="loginPage" class="login">
+  <div class="login-card">
+    <div class="login-title"><div class="logo">🌾</div><h1>RationSaathi</h1><p>Ration Entitlement & Evidence Assistant</p></div>
+    <p class="sub">Sign in to open the demo workspace for your role.</p>
+    <form id="loginForm">
+      <div class="fields">
+        <div class="field full"><label for="email">Demo account</label><input id="email" type="email" required autocomplete="username" placeholder="beneficiary@demo"></div>
+        <div class="field full"><label for="password">Demo password</label><input id="password" type="password" required autocomplete="current-password" placeholder="Enter demo password"></div>
+      </div>
+      <div class="actions"><button class="btn green" style="width:100%" type="submit">Sign in</button></div>
+      <div class="error" id="loginError" role="alert"></div>
+    </form>
+    <div class="demo-creds"><strong>Demo access (password: <code>anna123</code>)</strong><br>Beneficiary: <code>beneficiary@demo</code><br>Ration shopkeeper: <code>shop@demo</code><br>Department reviewer: <code>department@demo</code></div>
+    <div class="notice" style="margin:14px 0 0">Demo sign-in only. This browser prototype does not provide secure accounts. Use fictional information, not real personal records.</div>
+  </div>
+  <div class="login-footer">VORTEXA 3.0 prototype · Fictional demonstration data</div>
+</section>
+
+<main class="wrap hidden" id="appMain">
+  <section class="hero"><h1 id="welcomeTitle">Welcome</h1><p id="welcomeText"></p></section>
+  <div class="notice"><strong>Assistance prototype, not an official government service.</strong> Confirm the applicable rule and records with the relevant official source. A shortfall is a discrepancy for verification, not proof of wrongdoing. Use fictional demo data only.</div>
+
+  <section id="beneficiaryView" class="hidden">
+    <div class="title"><div><h2>Household entitlement</h2><p>Enter or confirm the rule used for this calculation.</p></div></div>
+    <div class="grid">
+      <div class="card"><h3>Household and rule</h3><p class="sub">Expected amount = entered rule × applicable household basis.</p>
+        <div class="fields">
+          <div class="field"><label for="bRef">Household reference</label><input id="bRef" value="SAMPLE-001" maxlength="50"></div>
+          <div class="field"><label for="bName">Household label</label><input id="bName" value="Demo Household" maxlength="60"></div>
+          <div class="field"><label for="bPeriod">Period</label><input id="bPeriod" type="month"></div>
+          <div class="field"><label for="bMembers">Household members</label><input id="bMembers" type="number" min="1" max="100" value="4"></div>
+          <div class="field"><label for="bItem">Item</label><input id="bItem" value="Rice" maxlength="50"></div>
+          <div class="field"><label for="bRate">Rule quantity (kg)</label><input id="bRate" type="number" min="0.001" step="0.001" value="5"></div>
+          <div class="field"><label for="bBasis">Rule basis</label><select id="bBasis"><option value="person">Per member</option><option value="household">Per household</option></select></div>
+          <div class="field"><label for="bSource">Rule source / note</label><input id="bSource" value="Fictional demo rule — confirm before use" maxlength="160"></div>
+        </div>
+        <div class="actions"><button class="btn green" id="saveRule" type="button">Save rule</button><span class="hint" id="ruleFormula"></span></div>
+      </div>
+      <div class="card"><h3>Comparison</h3><p class="sub">Recorded shopkeeper and household entries for this reference.</p>
+        <div class="stats"><div class="stat"><span>Expected</span><strong id="bExpected">—</strong></div><div class="stat"><span>Recorded received</span><strong id="bReceived">0 kg</strong></div><div class="stat alert"><span>Potential shortfall</span><strong id="bShortfall">—</strong></div></div>
+        <div class="report" id="bReport"><h3>Delivery review</h3><div id="bReportBody"></div><p class="muted"><strong>Note:</strong> This report reflects entered information only. The cause of any difference is not determined.</p></div>
+        <div class="actions"><button class="btn gold" id="submitCase" type="button">Submit report for department review</button><button class="btn light" id="printReport" type="button">Print / save PDF</button></div>
+      </div>
+    </div>
+    <div class="title"><div><h2>Delivery evidence</h2><p>Enter a delivery you received, or review a shopkeeper entry. Each record keeps its source.</p></div></div>
+    <div class="card"><form id="bDeliveryForm"><div class="fields">
+      <div class="field"><label for="bDeliveryDate">Delivery date</label><input id="bDeliveryDate" type="date" required></div>
+      <div class="field"><label for="bDeliveryQty">Quantity received (kg)</label><input id="bDeliveryQty" type="number" min="0.001" step="0.001" required></div>
+      <div class="field"><label for="bDeliverySource">Evidence reference</label><input id="bDeliverySource" maxlength="160" required placeholder="Receipt number or dated note"></div>
+      <div class="field"><label for="bDeliveryNote">Evidence note</label><input id="bDeliveryNote" maxlength="250" placeholder="Optional factual note"></div>
+    </div><div class="actions"><button class="btn green" type="submit">Add my delivery record</button></div></form>
+      <div class="table-wrap" style="margin-top:16px"><table><thead><tr><th>Date</th><th>Item</th><th>Amount</th><th>Recorded by</th><th>Evidence</th></tr></thead><tbody id="bDeliveries"></tbody></table></div></div>
+    <div class="title"><div><h2>My submitted reports</h2><p>Reports submitted from this household reference.</p></div></div><div class="card"><div class="table-wrap"><table><thead><tr><th>Submitted</th><th>Period</th><th>Difference</th><th>Status</th><th>Department note</th></tr></thead><tbody id="myCases"></tbody></table></div></div>
+  </section>
+
+  <section id="shopView" class="hidden">
+    <div class="title"><div><h2>Shopkeeper delivery entry</h2><p>Record a fictional distribution with a traceable evidence reference.</p></div></div>
+    <div class="grid"><div class="card"><h3>Record distribution</h3><p class="sub">The beneficiary can see this record by entering the same household reference.</p>
+      <form id="shopForm"><div class="fields">
+        <div class="field"><label for="sRef">Household reference</label><input id="sRef" value="SAMPLE-001" required maxlength="50"></div>
+        <div class="field"><label for="sDate">Distribution date</label><input id="sDate" type="date" required></div>
+        <div class="field"><label for="sItem">Item</label><input id="sItem" value="Rice" required maxlength="50"></div>
+        <div class="field"><label for="sQty">Quantity received (kg)</label><input id="sQty" type="number" min="0.001" step="0.001" required></div>
+        <div class="field full"><label for="sEvidence">Receipt / transaction reference</label><input id="sEvidence" required maxlength="160" placeholder="e.g. DEMO-TXN-1042"></div>
+        <div class="field full"><label for="sNote">Note (optional)</label><textarea id="sNote" maxlength="300" placeholder="Short factual note"></textarea></div>
+      </div><div class="actions"><button class="btn green" type="submit">Save distribution record</button></div></form>
+    </div><div class="card"><h3>Recent shop entries</h3><p class="sub">Fictional local ledger in this browser.</p><div class="table-wrap"><table><thead><tr><th>Date</th><th>Household</th><th>Item / quantity</th><th>Receipt reference</th></tr></thead><tbody id="shopRows"></tbody></table></div></div></div>
+  </section>
+
+  <section id="departmentView" class="hidden">
+    <div class="title"><div><h2>Department review inbox</h2><p>Review reports submitted through this browser demo.</p></div><span class="pill">Fictional records</span></div>
+    <div class="card"><div class="table-wrap"><table><thead><tr><th>Submitted</th><th>Household ref</th><th>Period</th><th>Difference</th><th>Evidence summary</th><th>Status</th><th>Action</th></tr></thead><tbody id="caseRows"></tbody></table></div></div>
+  </section>
+</main>
+<footer class="hidden" id="appFooter">RationSaathi demo · Data is saved locally in this browser and is not shared between devices.</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const $=id=>document.getElementById(id), DBKEY='rationsaathi_roles_demo_data_v1', SESSION='rationsaathi_roles_demo_session_v1';
+const accounts={'beneficiary@demo':{password:'anna123',role:'beneficiary',label:'Beneficiary'},'shop@demo':{password:'anna123',role:'shop',label:'Ration shopkeeper'},'department@demo':{password:'anna123',role:'department',label:'Department reviewer'}};
+const grams=v=>Math.round(Number(v)*1000),kg=v=>(v/1000).toLocaleString('en-IN',{maximumFractionDigits:3}),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const nowMonth=()=>new Date().toISOString().slice(0,7), today=()=>new Date().toISOString().slice(0,10);
+function blankDB(){return {deliveries:[],rules:{},cases:[]}}
+function getDB(){try{return {...blankDB(),...JSON.parse(localStorage.getItem(DBKEY)||'{}')}}catch(_){return blankDB()}}
+function putDB(db){localStorage.setItem(DBKEY,JSON.stringify(db))}
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2300)}
+let session=null;
+function startDemoData(){const db=getDB();if(db.deliveries.length===0){db.deliveries.push({id:1,ref:'SAMPLE-001',date:nowMonth()+'-04',item:'Rice',grams:10000,source:'DEMO-RECEIPT-001',note:'Fictional sample installment',by:'shop'});putDB(db)}}
+function showSession(user){session=user;localStorage.setItem(SESSION,JSON.stringify(user));$('loginPage').classList.add('hidden');$('appTop').classList.remove('hidden');$('appMain').classList.remove('hidden');$('appFooter').classList.remove('hidden');$('sessionLabel').textContent=`${user.label} · ${user.email}`;
+  ['beneficiaryView','shopView','departmentView'].forEach(id=>$(id).classList.add('hidden'));
+  const copy={beneficiary:['Beneficiary workspace','Enter your household rule, compare recorded deliveries, and submit a neutral evidence-based report.'],shop:['Shopkeeper workspace','Record dated distributions and receipt references for a household.'],department:['Department review workspace','Review submitted discrepancy reports and record a follow-up status.']};
+  const [title,desc]=copy[user.role];$('welcomeTitle').textContent=title;$('welcomeText').textContent=desc;
+  $(user.role==='beneficiary'?'beneficiaryView':user.role==='shop'?'shopView':'departmentView').classList.remove('hidden');
+  if(user.role==='beneficiary')initBeneficiary(); if(user.role==='shop')initShop(); if(user.role==='department')renderCases();
+}
+function signOut(){session=null;localStorage.removeItem(SESSION);$('appTop').classList.add('hidden');$('appMain').classList.add('hidden');$('appFooter').classList.add('hidden');$('loginPage').classList.remove('hidden');$('password').value=''}
+$('loginForm').addEventListener('submit',e=>{e.preventDefault();const email=$('email').value.trim().toLowerCase(),acct=accounts[email];if(!acct||$('password').value!==acct.password){$('loginError').textContent='Demo account or password not recognized. Use one of the demo accounts shown.';return}$('loginError').textContent='';showSession({email,role:acct.role,label:acct.label})});
+$('signOut').addEventListener('click',signOut);
+function currentRule(){const db=getDB(),ref=$('bRef').value.trim().toUpperCase();return db.rules[ref]||{ref,name:'Demo Household',period:nowMonth(),members:4,item:'Rice',rate:5,basis:'person',source:'Fictional demo rule — confirm before use'}}
+function initBeneficiary(){const rule=currentRule();$('bRef').value=rule.ref;$('bName').value=rule.name;$('bPeriod').value=rule.period||nowMonth();$('bMembers').value=rule.members;$('bItem').value=rule.item;$('bRate').value=rule.rate;$('bBasis').value=rule.basis;$('bSource').value=rule.source;$('bDeliveryDate').value=today();renderBeneficiary()}
+function saveCurrentRule(){const ref=$('bRef').value.trim().toUpperCase();if(!ref){toast('Enter a household reference.');return}const db=getDB();db.rules[ref]={ref,name:$('bName').value.trim()||'Demo Household',period:$('bPeriod').value,members:Number($('bMembers').value),item:$('bItem').value.trim(),rate:Number($('bRate').value),basis:$('bBasis').value,source:$('bSource').value.trim()};putDB(db);renderBeneficiary();toast('Rule saved for this browser demo.')}
+$('saveRule').addEventListener('click',saveCurrentRule);
+ $('bDeliveryForm').addEventListener('submit',e=>{e.preventDefault();const ref=$('bRef').value.trim().toUpperCase(),date=$('bDeliveryDate').value,item=$('bItem').value.trim(),amount=grams($('bDeliveryQty').value),source=$('bDeliverySource').value.trim();if(!ref||!item||!date||date.slice(0,7)!==$('bPeriod').value||amount<=0||!source){toast('Enter a date in the selected period, quantity, and evidence reference.');return}const db=getDB();db.deliveries.unshift({id:Date.now(),ref,date,item,grams:amount,source,note:$('bDeliveryNote').value.trim(),by:'household'});putDB(db);$('bDeliveryQty').value='';$('bDeliverySource').value='';$('bDeliveryNote').value='';renderBeneficiary();toast('Your delivery record was added.')});
+['bRef','bName','bPeriod','bMembers','bItem','bRate','bBasis','bSource'].forEach(id=>$(id).addEventListener('change',()=>{if(id==='bRef'){const r=currentRule();$('bName').value=r.name;$('bPeriod').value=r.period||nowMonth();$('bMembers').value=r.members;$('bItem').value=r.item;$('bRate').value=r.rate;$('bBasis').value=r.basis;$('bSource').value=r.source}renderBeneficiary()}));
+function matchingDeliveries(ref,period,item){return getDB().deliveries.filter(d=>d.ref===ref&&d.date.slice(0,7)===period&&d.item.toLowerCase()===item.toLowerCase()).sort((a,b)=>a.date.localeCompare(b.date))}
+function renderBeneficiary(){const ref=$('bRef').value.trim().toUpperCase(),period=$('bPeriod').value,item=$('bItem').value.trim()||'item',rate=Number($('bRate').value),members=Number($('bMembers').value),basis=$('bBasis').value;const valid=Boolean(period&&rate>0&&Number.isInteger(members)&&members>0);const expected=valid?grams(rate)*(basis==='person'?members:1):null;const rows=matchingDeliveries(ref,period,item),received=rows.reduce((a,d)=>a+d.grams,0),short=expected===null?null:Math.max(0,expected-received);$('bExpected').textContent=expected===null?'—':kg(expected)+' kg';$('bReceived').textContent=kg(received)+' kg';$('bShortfall').textContent=short===null?'—':kg(short)+' kg';$('ruleFormula').textContent=valid?`Expected = ${kg(grams(rate))} kg × ${basis==='person'?members+' members':'1 household'} = ${kg(expected)} kg.`:'Complete the rule fields to calculate.';
+  $('bDeliveries').innerHTML=rows.length?rows.map(d=>`<tr><td>${esc(d.date)}</td><td>${esc(d.item)}</td><td>${kg(d.grams)} kg</td><td>${d.by==='shop'?'Shopkeeper':'Household'}</td><td>${esc(d.source)}${d.note?'<br><span class="muted">'+esc(d.note)+'</span>':''}</td></tr>`).join(''):'<tr><td colspan="5" class="empty">No matching delivery records. A shopkeeper can add one using this household reference.</td></tr>';
+  const monthText=period?new Date(period+'-01T00:00:00').toLocaleDateString('en-IN',{month:'long',year:'numeric'}):'Period not selected';const outcome=expected===null?'The rule is incomplete, so a difference cannot be calculated.':short>0?`The entered records are ${kg(short)} kg below the entered expected amount. This is a discrepancy for verification; its cause is not determined.`:received>expected?`The recorded amount is ${kg(received-expected)} kg above the entered expected amount. Please verify the rule and records.`:'Recorded deliveries match the entered expected amount.';
+  $('bReportBody').innerHTML=`<p><strong>Household:</strong> ${esc($('bName').value||'Not provided')} (${esc(ref||'No reference')})<br><strong>Period:</strong> ${esc(monthText)}<br><strong>Rule:</strong> ${valid?`${kg(grams(rate))} kg ${basis==='person'?'per member':'per household'}; ${basis==='person'?members+' members':'household total'}; source: ${esc($('bSource').value||'not provided')}`:'Incomplete'}<br><strong>Expected:</strong> ${expected===null?'Not calculated':kg(expected)+' kg'} · <strong>Recorded:</strong> ${kg(received)} kg · <strong>Potential shortfall:</strong> ${short===null?'Not calculated':kg(short)+' kg'}</p><p>${esc(outcome)}</p><strong>Delivery evidence</strong>${rows.length?'<ol>'+rows.map(d=>`<li>${esc(d.date)} — ${kg(d.grams)} kg ${esc(d.item)}; recorded by ${d.by==='shop'?'shopkeeper':'household'}; source ${esc(d.source)}${d.note?'; note: '+esc(d.note):''}.</li>`).join('')+'</ol>':'<p>No delivery evidence is recorded for this period.</p>'}`;
+  renderMyCases(ref)}
+function renderMyCases(ref){const rows=getDB().cases.filter(c=>c.ref===ref);$('myCases').innerHTML=rows.length?rows.map(c=>`<tr><td>${esc(c.submitted)}</td><td>${esc(c.period)}</td><td>${kg(c.shortfall)} kg</td><td><span class="status">${esc(c.status)}</span></td><td>${esc(c.note||'—')}</td></tr>`).join(''):'<tr><td colspan="5" class="empty">No reports submitted for this reference yet.</td></tr>'}
+$('submitCase').addEventListener('click',()=>{saveCurrentRule();const db=getDB(),ref=$('bRef').value.trim().toUpperCase(),period=$('bPeriod').value,item=$('bItem').value.trim(),rate=Number($('bRate').value),members=Number($('bMembers').value),expected=grams(rate)*( $('bBasis').value==='person'?members:1),rows=matchingDeliveries(ref,period,item),received=rows.reduce((a,d)=>a+d.grams,0);if(!period||rate<=0||!ref){toast('Complete the rule and period before submitting.');return}const report={id:Date.now(),ref,name:$('bName').value.trim(),period,item,expected,received,shortfall:Math.max(0,expected-received),rule:`${kg(grams(rate))} kg ${$('bBasis').value==='person'?'per member':'per household'}`,source:$('bSource').value,deliveries:rows.map(d=>({date:d.date,grams:d.grams,source:d.source,note:d.note})),submitted:new Date().toLocaleString(),status:'New',note:''};db.cases.unshift(report);putDB(db);renderMyCases(ref);toast('Report sent to the demo department inbox.')});
+$('printReport').addEventListener('click',()=>window.print());
+function initShop(){$('sDate').value=today();renderShop()}
+$('shopForm').addEventListener('submit',e=>{e.preventDefault();const ref=$('sRef').value.trim().toUpperCase(),date=$('sDate').value,item=$('sItem').value.trim(),amount=grams($('sQty').value),source=$('sEvidence').value.trim();if(!ref||!date||!item||!source||amount<=0){toast('Complete all required distribution fields.');return}const db=getDB();db.deliveries.unshift({id:Date.now(),ref,date,item,grams:amount,source,note:$('sNote').value.trim(),by:'shop'});putDB(db);$('sQty').value='';$('sEvidence').value='';$('sNote').value='';renderShop();toast('Distribution saved. Beneficiary comparison updated.')});
+function renderShop(){const rows=getDB().deliveries.slice().sort((a,b)=>b.date.localeCompare(a.date));$('shopRows').innerHTML=rows.length?rows.map(d=>`<tr><td>${esc(d.date)}</td><td>${esc(d.ref)}</td><td>${esc(d.item)} · ${kg(d.grams)} kg</td><td>${esc(d.source)}</td></tr>`).join(''):'<tr><td colspan="4" class="empty">No distribution entries yet.</td></tr>'}
+function renderCases(){const cases=getDB().cases;$('caseRows').innerHTML=cases.length?cases.map(c=>`<tr><td>${esc(c.submitted)}</td><td>${esc(c.ref)}</td><td>${esc(c.period)}</td><td>${kg(c.shortfall)} kg</td><td>${c.deliveries.length} record(s)<br>${c.deliveries.map(d=>esc(d.source)).join(', ')||'No delivery evidence'}</td><td><span class="status">${esc(c.status)}</span></td><td><button class="btn light small" data-case="${c.id}" data-status="Under review">Review</button> <button class="btn green small" data-case="${c.id}" data-status="Verified">Mark verified</button></td></tr>`).join(''):'<tr><td colspan="7" class="empty">No reports yet. Submit one from the beneficiary demo account to see it here.</td></tr>'}
+$('caseRows').addEventListener('click',e=>{const btn=e.target.closest('[data-case]');if(!btn)return;const db=getDB(),c=db.cases.find(row=>row.id===Number(btn.dataset.case));if(!c)return;const note=prompt('Add a short fictional review note (optional):',c.note||'');if(note===null)return;c.status=btn.dataset.status;c.note=note.trim();putDB(db);renderCases();toast('Review status updated.')});
+function init(){ $('bPeriod').value=nowMonth();startDemoData();try{const saved=JSON.parse(localStorage.getItem(SESSION)||'null');if(saved&&accounts[saved.email]&&accounts[saved.email].role===saved.role)showSession(saved)}catch(_){}}
+init();
+</script>
+</body>
+</html>
+
+
